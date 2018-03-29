@@ -30,6 +30,9 @@ RUN apt-get update && apt-get install -y software-properties-common  \
                           zlib1g-dev \
                           zsh \
     && apt-get clean && rm -fr /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+# for utf-8
+RUN locale-gen en_US.UTF-8 
     
 # for ssh
 RUN mkdir /var/run/sshd
