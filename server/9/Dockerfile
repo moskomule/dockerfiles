@@ -45,6 +45,11 @@ RUN sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/s
 RUN echo "export PATH=$PATH" >> /etc/profile && \
     echo "ldconfig" >> /etc/profile
     
+# utilities
+RUN pip install -U pip \
+    && pip install --no-cache-dir glances nvidia-ml-py3 neovim tensorflow tensorboardX
+
+
 USER root
 RUN echo "root:Docker!" | chpasswd
 EXPOSE 22
