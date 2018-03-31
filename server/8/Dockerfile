@@ -45,6 +45,12 @@ RUN sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/s
 RUN echo "export PATH=$PATH" >> /etc/profile && \
     echo "ldconfig" >> /etc/profile
     
+# utilities etc.
+COPY requirements.txt /tmp 
+RUN pip install -U pip \
+    && pip install --no-cache-dir -r /tmp/requirements.txt
+
+
 USER root
 RUN echo "root:Docker!" | chpasswd
 EXPOSE 22
