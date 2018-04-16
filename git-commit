@@ -8,5 +8,5 @@ echo "FROM moskomule/dockerfiles:cuda8" > ./server/8/Dockerfile
 tail -n +2 ./server/9/Dockerfile >> ./server/8/Dockerfile
 cp ./server/9/requirements.txt ./server/8/
 
-git commit -am $1
+git commit -am $@
 git push
