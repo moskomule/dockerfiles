@@ -10,6 +10,7 @@ RUN apt-get update && apt-get install -y software-properties-common  \
                           gcc \
                           git \
                           neovim \
+                          language-pack-ja \
                           libav-tools \
                           libboost-all-dev \
                           libjpeg-dev \
@@ -44,6 +45,9 @@ RUN echo "export PATH=$PATH" >> /etc/profile && \
 COPY requirements.txt /tmp 
 RUN pip install -U pip \
     && pip install --no-cache-dir -r /tmp/requirements.txt
+
+# utf-8
+RUN update-locale LANG=ja_JP.UTF-8
 
 
 USER root
