@@ -8,5 +8,5 @@ RUN wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -
     && rm miniconda.sh
 ENV PATH="/opt/.miniconda/bin:$PATH"
 RUN conda install -y -q pytorch torchvision cuda90 -c pytorch \
-    && conda install -y -q tqdm ipython \
+    && pip install -y -q tqdm ipython \
     && conda clean --all -y -q
