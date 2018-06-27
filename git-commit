@@ -1,12 +1,19 @@
 #!/bin/bash
 
 # semi-automatically update cuda8
-echo "FROM nvidia/cuda:8.0-cudnn6-devel-ubuntu16.04" > ./miniconda-gpu/8/Dockerfile
-tail -n +2 ./miniconda-cpu/Dockerfile >> ./miniconda-gpu/8/Dockerfile
+echo "FROM nvidia/cuda:9.2-cudnn7-devel-ubuntu16.04" > ./miniconda-gpu/92/Dockerfile
+tail -n +2 ./miniconda-cpu/Dockerfile | sed s/90/92/ >> ./miniconda-gpu/92/Dockerfile
 
-echo "FROM moskomule/dockerfiles:cuda8" > ./server/8/Dockerfile
-tail -n +2 ./server/9/Dockerfile >> ./server/8/Dockerfile
-cp ./server/9/requirements.txt ./server/8/
+echo "FROM moskomule/dockerfiles:cuda92" > ./server/92/Dockerfile
+tail -n +2 ./server/90/Dockerfile >> ./server/92/Dockerfile
+cp ./server/90/requirements.txt ./server/92/
 
-git commit -am $@
+if [[ $@ == "" ]]; then
+    COMMENT="update"
+else
+    COMMENT=$@
+fi
+
+git add .
+git commit -am $COMMENT
 git push

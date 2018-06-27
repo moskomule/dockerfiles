@@ -1,4 +1,4 @@
-FROM moskomule/dockerfiles:cuda8
+FROM moskomule/dockerfiles:cuda92
 
 RUN apt-get update && apt-get install -y software-properties-common  \
     && add-apt-repository ppa:neovim-ppa/stable \
