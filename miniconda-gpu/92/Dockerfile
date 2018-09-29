@@ -24,5 +24,5 @@ RUN mkdir temp && cd temp \
     && make install \
     && cd .. \
     && git clone https://github.com/uploadcare/pillow-simd \
-    && CPATH=$HOME/.local/include LIBRARY_PATH=$HOME/.local/lib CC="cc -mavx2" python setup.py install
+    && CPATH=$HOME/.local/include LIBRARY_PATH=$HOME/.local/lib CC="cc -mavx2" python setup.py install \
     && cd .. && rm -rf temp
