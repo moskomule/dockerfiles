@@ -14,15 +14,15 @@ RUN conda install -y -q pytorch torchvision cuda90 -c pytorch \
 # Install PillowSIMD+libjpeg-turbo on Conda 
 # https://gist.github.com/soumith/01da3874bf014d8a8c53406c2b95d56b
 RUN mkdir temp && cd temp \
-    && mkdir -p $HOME/.local \
+    && mkdir -p /opt/.local \
     && conda uninstall --force pillow -y \
     && git clone https://github.com/libjpeg-turbo/libjpeg-turbo \
     && mkdir build \
     && cd build \
-    && cmake .. -DCMAKE_INSTALL_PREFIX:PATH=$HOME/.local \
+    && cmake .. -DCMAKE_INSTALL_PREFIX:PATH=/opt/.local \
     && make \
     && make install \
     && cd .. \
     && git clone https://github.com/uploadcare/pillow-simd \
-    && CPATH=$HOME/.local/include LIBRARY_PATH=$HOME/.local/lib CC="cc -mavx2" python setup.py install \
+    && CPATH=/opt/.local/include LIBRARY_PATH=/opt/.local/lib CC="cc -mavx2" python setup.py install \
     && cd .. && rm -rf temp
