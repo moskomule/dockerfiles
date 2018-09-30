@@ -4,6 +4,7 @@ RUN apt-get update -qq && apt-get install -y -qq \
     cmake \
     git \
     gcc \
+    nasm build-essential \
     wget \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
