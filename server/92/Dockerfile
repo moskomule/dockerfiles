@@ -5,15 +5,11 @@ RUN apt-get update && apt-get install -y software-properties-common  \
     && apt-get update && apt-get install -y \
                           apt-utils \
                           bzip2 \
-                          cmake \
                           curl \
-                          gcc \
-                          git \
                           neovim \
                           language-pack-ja \
                           libav-tools \
                           libboost-all-dev \
-                          libjpeg-dev \
                           libsdl2-dev \
                           libsox-dev \
                           libsox-fmt-all \
@@ -27,7 +23,6 @@ RUN apt-get update && apt-get install -y software-properties-common  \
                           unzip \
                           xorg-dev \ 
                           xvfb \
-                          wget \
                           zlib1g-dev \
                           zsh \
     && apt-get clean && rm -fr /var/lib/apt/lists/* /tmp/* /var/tmp/*

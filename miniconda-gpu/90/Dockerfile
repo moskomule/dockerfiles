@@ -1,5 +1,10 @@
 FROM nvidia/cuda:9.0-cudnn7-devel-ubuntu16.04
-RUN apt-get update -qq && apt-get install -y -qq wget bzip2 \
+RUN apt-get update -qq && apt-get install -y -qq \
+    bzip2 \
+    cmake \
+    git \
+    gcc \
+    wget \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 WORKDIR /opt
