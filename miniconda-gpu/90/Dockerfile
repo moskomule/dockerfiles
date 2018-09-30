@@ -17,6 +17,7 @@ RUN mkdir temp && cd temp \
     && mkdir -p /opt/.local \
     && conda uninstall --force pillow -y \
     && git clone https://github.com/libjpeg-turbo/libjpeg-turbo \
+    && cd libjpeg-turbo \
     && mkdir build \
     && cd build \
     && cmake .. -DCMAKE_INSTALL_PREFIX:PATH=/opt/.local \
@@ -24,5 +25,6 @@ RUN mkdir temp && cd temp \
     && make install \
     && cd .. \
     && git clone https://github.com/uploadcare/pillow-simd \
+    && cd pillow-simd \
     && CPATH=/opt/.local/include LIBRARY_PATH=/opt/.local/lib CC="cc -mavx2" python setup.py install \
     && cd .. && rm -rf temp
