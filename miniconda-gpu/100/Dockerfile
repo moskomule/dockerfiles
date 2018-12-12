@@ -1,4 +1,4 @@
-FROM nvidia/cuda:9.0-cudnn7-devel-ubuntu16.04
+FROM nvidia/cuda:10.0-devel-ubuntu18.04
 RUN apt-get update -qq && apt-get install -y -qq \
     bzip2 \
     cmake \
