@@ -1,0 +1,5 @@
+glances
+nvidia-ml-py3
+neovim
+tensorboardX
+visdom
