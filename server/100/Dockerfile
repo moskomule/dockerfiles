@@ -8,7 +8,6 @@ RUN apt-get update && apt-get install -y software-properties-common  \
                           curl \
                           neovim \
                           language-pack-ja \
-                          libav-tools \
                           libboost-all-dev \
                           libsdl2-dev \
                           libsox-dev \
