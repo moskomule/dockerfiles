@@ -48,7 +48,4 @@ USER root
 RUN echo "root:Docker!" | chpasswd
 EXPOSE 22
 
-# install linuxbrew
-RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
-
 CMD ["/usr/sbin/sshd", "-D"]
