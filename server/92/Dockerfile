@@ -5,17 +5,11 @@ RUN apt-get update && apt-get install -y software-properties-common  \
     && apt-get update && apt-get install -y -qq \
                           apt-utils \
                           bzip2 \
-                          curl \
                           neovim \
                           language-pack-ja \
-                          libav-tools \
                           libboost-all-dev \
-                          libsdl2-dev \
-                          libsox-dev \
-                          libsox-fmt-all \
                           locales \
                           openssh-server \
-                          sox \
                           sshfs \
                           sudo \
                           swig \
@@ -43,7 +37,6 @@ RUN pip install -U pip \
 
 # utf-8
 RUN update-locale LANG=ja_JP.UTF-8
-
 
 USER root
 RUN echo "root:Docker!" | chpasswd

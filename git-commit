@@ -4,9 +4,16 @@
 echo "FROM nvidia/cuda:9.2-cudnn7-devel-ubuntu16.04" > ./miniconda-gpu/92/Dockerfile
 tail -n +2 ./miniconda-gpu/90/Dockerfile | sed s/90/92/ >> ./miniconda-gpu/92/Dockerfile
 
+echo "FROM nvidia/cuda:10.0-cudnn7-devel-ubuntu18.04" > ./miniconda-gpu/100/Dockerfile
+tail -n +2 ./miniconda-gpu/90/Dockerfile | sed s/90/100/ >> .miniconda-gpu/100/Dockerfile
+
 echo "FROM moskomule/dockerfiles:cuda92" > ./server/92/Dockerfile
 tail -n +2 ./server/90/Dockerfile >> ./server/92/Dockerfile
 cp ./server/90/requirements.txt ./server/92/
+
+echo "FROM moskomule/dockerfiles:cuda100" > ./server/100/Dockerfile
+tail -n +2 ./server/90/Dockerfile >> ./server/100/Dockerfile
+cp ./server/90/requirements.txt ./server/100/
 
 if [[ $@ == "" ]]; then
     COMMENT="update"

@@ -1,10 +1,13 @@
 FROM nvidia/cuda:9.0-cudnn7-devel-ubuntu16.04
 RUN apt-get update -qq && apt-get install -y -qq \
     bzip2 \
+    build-essential \
     cmake \
-    git \
+    curl \
     gcc \
-    nasm build-essential \
+    git \
+    nasm \
+    ruby \
     wget \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
