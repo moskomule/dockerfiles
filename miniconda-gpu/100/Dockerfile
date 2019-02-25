@@ -17,7 +17,7 @@ RUN wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -
     && bash miniconda.sh -b -p /opt/.miniconda \
     && rm miniconda.sh
 ENV PATH="/opt/.miniconda/bin:$PATH"
-RUN conda install -y -q pytorch torchvision cudatoolkit=9.0 -c pytorch \
+RUN conda install -y -q pytorch torchvision cudatoolkit=10.0 -c pytorch \
     && pip install tqdm ipython \
     && conda clean --all -y -q
 
