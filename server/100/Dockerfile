@@ -5,12 +5,10 @@ RUN apt-get update && apt-get install -y software-properties-common  \
     && apt-get update && apt-get install -y -qq \
                           apt-utils \
                           bzip2 \
-                          neovim \
                           language-pack-ja \
                           libboost-all-dev \
                           locales \
                           openssh-server \
-                          sshfs \
                           sudo \
                           swig \
                           tmux \
@@ -30,11 +28,6 @@ RUN sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/s
 RUN echo "export PATH=$PATH" >> /etc/profile && \
     echo "ldconfig" >> /etc/profile
     
-# utilities etc.
-COPY requirements.txt /tmp 
-RUN pip install -U pip \
-    && pip install --no-cache-dir -r /tmp/requirements.txt
-
 # utf-8
 RUN update-locale LANG=ja_JP.UTF-8
 

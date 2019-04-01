@@ -7,6 +7,7 @@ RUN apt-get update -qq && apt-get install -y -qq \
     gcc \
     git \
     nasm \
+    neovim \
     ruby \
     rsync \
     wget \
@@ -18,6 +19,6 @@ RUN wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -
     && rm miniconda.sh
 ENV PATH="/opt/.miniconda/bin:$PATH"
 RUN conda install -y -q pytorch torchvision cudatoolkit=9.0 -c pytorch \
-    && pip install tqdm ipython \
+    && pip install tqdm ipython glances neovim nvidia-ml-py3\
     && conda clean --all -y -q
 

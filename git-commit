@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # semi-automatically update cuda8
-echo "FROM nvidia/cuda:10.0-cudnn7-devel-ubuntu18.04" > ./miniconda-gpu/100/Dockerfile
+echo "FROM nvidia/cuda:10.0-cudnn7-devel-ubuntu16.04" > ./miniconda-gpu/100/Dockerfile
 tail -n +2 ./miniconda-gpu/90/Dockerfile | sed s/9.0/10.0/ >> ./miniconda-gpu/100/Dockerfile
 
 echo "FROM moskomule/dockerfiles:cuda100" > ./server/100/Dockerfile
